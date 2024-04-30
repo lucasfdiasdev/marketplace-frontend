@@ -1,5 +1,5 @@
 const LayoutAuth = ({ children }: { children: React.ReactNode }) => {
-  return <div>{children}</div>;
+  return <main>{children}</main>;
 };
 
 export default LayoutAuth;
