@@ -1,11 +1,15 @@
 "use client";
 
 import clsx from "clsx";
+import { LegacyRef } from "react";
 
 interface IInput {
+  id: string;
   type?: string;
   name?: string;
   value?: string;
+  maxLength?: number;
+  ref?: LegacyRef<HTMLInputElement>;
   className?: string;
   placeholder?: string;
   onBlur?: () => void;
@@ -13,34 +17,35 @@ interface IInput {
 }
 
 const Input: React.FC<IInput> = ({
+  id,
+  ref,
   type,
   name,
   value,
-  placeholder,
-  className,
-  onChange,
   onBlur,
+  onChange,
+  className,
+  maxLength,
 }) => {
   return (
     <div className="relative">
       <input
+        id={id}
         type={type}
+        ref={ref}
         name={name}
         value={value}
-        placeholder={placeholder}
+        maxLength={maxLength}
         onChange={onChange}
         onBlur={onBlur}
         className={clsx(
           `
             flex
-            h-9
             w-full
             rounded-md
             border
             bg-transparent
-            px-3
-            py-1
-            text-sm
+            p-4
             shadow-sm
             transition-colors
             file:border-0
