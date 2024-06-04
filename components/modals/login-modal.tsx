@@ -1,6 +1,8 @@
 "use client";
 
+import * as y from "yup";
 import axios from "axios";
+import { useFormik } from "formik";
 import toast from "react-hot-toast";
 import React, { useState } from "react";
 
@@ -18,6 +20,25 @@ const LoginModal = () => {
   const registerModal = useRegisterModal();
   const activateModal = useActivateModal();
   const [isLoading, setIsloading] = useState(false);
+
+  const loginSchema = y.object().shape({
+    email: y
+      .string()
+      .email("Por favor, insira um email valido.")
+      .required("Email e obrigatorio."),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validationSchema: loginSchema,
+    onSubmit: async ({ email }) => {
+      console.log(email);
+    },
+  });
+
+  const { errors, touched, values, handleChange, handleSubmit } = formik;
 
   const handleSubmitLogin = () => {
     setIsloading(true);

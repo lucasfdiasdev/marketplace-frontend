@@ -2,6 +2,7 @@ import Logo from "@/components/global/logo";
 import Container from "@/components/layout/container";
 import Search from "@/components/includes/header/search";
 import UserMenu from "@/components/includes/header/user-menu";
+import Categories from "@/components/includes/header/categories";
 
 const Header = () => {
   return (
@@ -15,6 +16,7 @@ const Header = () => {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };

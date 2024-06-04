@@ -58,6 +58,7 @@ const InputForm: React.FC<IInputForm> = ({
             z-10 
             peer-placeholder-shown:scale-100
             peer-placeholder-shown:!translate-y-0
+            peer-placeholder-shown:
             peer-focus:scale-75 
             peer-focus:-translate-y-4
             left-4
